@@ -40,6 +40,10 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
   <mappers>
   	<!-- 실행할 SQL 쿼리 저장한 파일. mapper파일위치와 파일명 오류나지 않도록 확인!! 테이블컬럼과 자바객체 변수(프로퍼티) 를 바로 매핑. -->
     <mapper resource="mybatis/member.xml"/>
+    <mapper resource="mybatis/movie.xml"/>
+    <mapper resource="mybatis/cinema.xml"/>
+    <mapper resource="mybatis/schedule.xml"/>
+    <mapper resource="mybatis/reserve.xml"/>
   </mappers>
 </configuration>
 

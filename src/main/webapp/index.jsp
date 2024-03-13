@@ -19,6 +19,7 @@
       	<meta name="author" content="" />
 	<link rel="stylesheet" href="assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="css/layout.css?v=3" />
+	<link rel="stylesheet" href="assets/css/header.css" />
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
@@ -182,13 +183,5 @@
 		</div>
 	</div>
 </div>
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="js/nav.js"></script>
 </body>
 </html>

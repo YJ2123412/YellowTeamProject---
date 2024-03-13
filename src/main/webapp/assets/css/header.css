@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+nav > ul#menu > li > ul.submenu {
+	display: none;
+}
+
+nav > ul#menu > li:hover > ul.submenu {
+	display: block;
+}
