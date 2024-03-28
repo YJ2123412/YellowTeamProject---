@@ -36,15 +36,14 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
     </environment>
   </environments>
   <!-- JDBC로 처리하는 상당부분의 코드와 파라미터 설정 및 결과 매핑 해준다. 
-  		매퍼 파일을 등록.    -->
+  	매퍼 파일을 등록.    -->
   <mappers>
   	<!-- 실행할 SQL 쿼리 저장한 파일. mapper파일위치와 파일명 오류나지 않도록 확인!! 테이블컬럼과 자바객체 변수(프로퍼티) 를 바로 매핑. -->
     <mapper resource="mybatis/member.xml"/>
-    <mapper resource="mybatis/movie.xml"/>
     <mapper resource="mybatis/cinema.xml"/>
     <mapper resource="mybatis/schedule.xml"/>
     <mapper resource="mybatis/reserve.xml"/>
+    <mapper resource="mybatis/movie.xml"/>
+    <mapper resource="mybatis/movieComments.xml" />
   </mappers>
 </configuration>
-
-

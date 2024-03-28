@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+.home > #banner {
+font-size: medium;
+    text-wrap: balance;
+    text-align: center;
+	margin-bottom:30px;
+	background: linear-gradient(to right, #4D628C 0%, #0D255E 50%, #4D628C 100%);
+	border-radius:40px/40px;
+	color:white;
+}
+
+/* Banner */
+#banner {
+	width: 75%;
+	margin: 0 auto;
+	height: 840px;
+	text-align: center;
+	position: relative;
+
+	background-image: url("../../images/banner.jpg");
+	background-position: center center;
+	background-size: cover;
+}
+
+#banner > .arrow {
+	position: absolute;
+	z-index: 9990;
+	font-size: 8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+}
+#banner > .arrow.left {
+	left: 2%;
+}
+#banner > .arrow.right {
+	left: 88%;
+}
+
+.card-wrapper {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	overflow: hidden;
+	position: relative;
+	transition-duration: 0.8s !important;
+}
+
+#banner header {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #212121;
+	background: rgba(27, 27, 27, 0.75);
+	color: #fff;
+	padding: 1.5em 0;
+}
+
+#banner header h2 {
+	display: inline-block;
+	margin: 0;
+	font-size: 1.25em;
+	vertical-align: middle;
+}
+
+#banner header h2 em {
+	opacity: 0.75;
+}
+
+#banner header h2 a {
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+#banner header h2 a:hover {
+	border-bottom-color: transparent;
+}
+
+#banner header .button {
+	vertical-align: middle;
+	margin-left: 1em;
+}
+
+@media screen and (max-width: 480px) {
+	#banner {
+	height: 40rem;
+}
+
+	#banner header {
+		padding: 20px;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	/* Banner */
+	#banner {
+		height: 18em;
+	}
+}
+
+@media screen and (max-width: 840px) {
+/* Banner */
+	#banner {
+		height: 40rem;
+	}
+
+	#banner header h2 {
+		display: block;
+	}
+
+	#banner header .button {
+		margin: 1em 0 0 0;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	/* Banner */
+	#banner {
+		width: 860px;
+		height: 40rem;
+	}
+}
+
+@media screen and (max-width: 1680px) {
+	/* Banner */
+	#banner {
+		width: 1240px;
+		height: 800px;
+	}
+}

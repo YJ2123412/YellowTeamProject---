@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="movieComments">
+	<select id="selectAll" resultType="mybatis.vo.MovieComments">
+		SELECT * from TBL_MOVIECOMMENTS
+	</select>
+	<select id="search" parameterType="java.util.Map" resultType="mybatis.vo.MovieComments">
+		SELECT * from TBL_MOVIECOMMENTS
+		<where>
+			<if test="mcode!=null">
+				mcode = #{mcode}
+			</if>
+			<if test="writer!=null">
+				<trim prefix="and">
+					writer like '%' || #{writer} || '%'
+				</trim>
+			</if>
+		</where>
+	</select>
+	<select id="maxOf" resultType="int">
+		SELECT max(idx) FROM TBL_MOVIECOMMENTS 
+	</select>
+	<insert id="insert" parameterType="mybatis.vo.MovieComments">
+		INSERT INTO TBL_MOVIECOMMENTS
+		VALUES (comment_idx_seq.nextval,#{mcode},#{writer},#{content}, sysdate, #{score}, #{count})
+	</insert>  
+	<delete id="delete" parameterType="int">
+		DELETE FROM 
+			TBL_MOVIECOMMENTS 
+		WHERE 
+			idx=#{idx}
+	</delete>
+</mapper>
+ 

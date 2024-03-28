@@ -3,10 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="schedules">
+	 <select id="selectDate" resultType="mybatis.vo.Schedule">
+	 	SELECT SCHEDULE FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
+	 </select>
+	 <select id="checkByMcode" resultType="mybatis.vo.Schedule" parameterType="int">
+	 	SELECT * FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
+	 </select>
+	 <insert id="insert" parameterType="java.util.Map">
+	 	INSERT INTO TBL_SCHEDULE VALUES (#{mcode}, #{cidx}, to_date(#{schedule}, 'YYYY-MM-DD'))
+	 </insert>
+	 <update id="update" parameterType="java.util.Map">
+	 	update TBL_SCHEDULE
+	 	<trim prefix="SET" suffixOverrides=",">
+	 		<if test="cidx!=null">
+	 			cidx = #{cidx},
+	 		</if>
+	 		<if test="schedule!=null">
+	 			schedule = to_date(#{schedule}, 'YYYY-MM-DD')
+	 		</if>
+	 	</trim>
+	 	where mcode = #{mcode}
+	 </update>
  </mapper>
- 
- 
- 
- 
- 
- 

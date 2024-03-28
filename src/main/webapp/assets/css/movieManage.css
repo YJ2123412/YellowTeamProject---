@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+main {
+	position: relative;
+	margin-top: 200px;
+	width: 100%;
+}
+
+.movie-box:first-of-type {
+	margin-top: 0;
+}
+.movie-box:last-of-type {
+	margin-bottom: 0;
+}
+.movie-box {
+	display: grid;
+	grid-template-columns: 1fr 8fr;
+	width: 80%;
+	height: 145px;
+	margin: 12px auto;
+	border: 1px solid black;
+	cursor: pointer;
+
+	.movie-poster {
+		overflow: hidden;
+		text-align: center;
+		line-height: 140px;
+
+		img {
+			display: inline-block;
+			width: 95px;
+			vertical-align: middle;
+		}
+	}
+
+	.movie-info {
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		overflow: hidden;
+
+		.movie-info-unit {
+			display: grid;
+			grid-template-columns: 2fr 4fr 1fr 3fr;
+			align-items: center;
+
+			* {
+				margin: 0;
+			}
+
+			.schedule-label.close {
+				color: white;
+				background-color: lightgray;
+				border: 1px solid lightgray;
+				border-radius: 3px;
+				width: fit-content;
+			}
+		}
+	}
+
+	.movie-synopsys > p {
+		display: -webkit-box;
+		margin: 0;
+		max-height: 70px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+		-webkit-line-clamp : 2;
+		-webkit-box-orient: vertical;
+	}
+}
+
+.modify-modal {
+	display: block;
+	z-index: 9999;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .7);
+	
+	*:not(button) {
+		font-size: 15px !important;
+		line-height: 25px !important;
+	}
+
+	.modal-field {
+		display: grid;
+    	grid-template-columns: 1fr 8fr;
+    	margin-bottom: 10px;
+	}
+	.modal-field > textarea {
+		padding-bottom: 40px;
+	}
+
+	.modal-buttons {
+		display: flex;
+		justify-content: end;
+		margin-top: 25px;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	form {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 700px;
+		height: 450px;
+		background-color: white;
+		padding: 20px;
+	}
+
+	input[type="text"] {
+		padding: 0;
+	}
+	
+	#changeSchedule {
+		display: none;
+	}
+
+	input[disabled] {
+		cursor: not-allowed;
+		-webkit-user-select:none;
+		-moz-user-select:none;
+		-ms-user-select:none;
+		user-select:none;
+		
+		+ #changeSchedule {
+			display: inline-block;
+			width: 95px;
+		    font-size: 12px;
+		    line-height: 28px;
+		    padding: 0;
+		}
+	}
+}
+.modify-modal.close {
+	display: none;
+}

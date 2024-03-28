@@ -1,0 +1,90 @@
+@charset "UTF-8";
+@import url("../assets/css/fontawesome-all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+@font-face {
+		    font-family: 'SUIT-Regular';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+section {
+	    padding: 3em 0 3em 0;
+	    overflow: hidden;
+}
+h1 a , div.container,h3 ,th {
+			font-family: 'SUIT-Regular';
+}		
+
+  .login h2{
+  		margin: 4rem 0;
+  		font-family: 'Font Awesome 5 Free';
+  		font-weight:normal;
+  		padding-top: 120px;
+  	}
+  	#incorrect {
+  		display: none;
+  		color: red;
+  		font-weight: 1.2rem;
+  	}
+  	.mycol-2 {
+  		float:left;
+  		padding: 1rem;
+  	}
+  	
+  	#join {
+  		width: 400px;
+  		margin:auto
+  	
+  	}
+  	@media screen and (max-width: 1420px) {
+
+			.table {
+				width: 920px;
+			}
+			
+
+}
+  	.paddingR {
+  		padding-right:20rem
+  	}
+  	
+  
+  	label,.input-group-text  {
+	/* 	font-weight:normal; */
+  		font-size:0.9em;
+  	}
+	#user{ 
+		float:right;
+		font-size: 0.9em;
+		
+	}
+ 
+	.f-sm {
+		font-size: 0.9em;
+	}
+	
+	/* index.jsp */
+	.inner p {
+		font-size:0.75em;
+	}
+	section.wrapper.style2 {
+			padding : 0;
+	}
+	section.wrapper.style2 h2 {
+		font-weight: 200;
+	}
+	
+	section#cta {
+		padding: 1em 0;
+	}
+	
+	section header.major {
+		margin-top: 2em;
+	}
+	
+	#cta h3 {
+		font-weight: 300;
+	}
+	#footer{
+	 float:left;
+	}

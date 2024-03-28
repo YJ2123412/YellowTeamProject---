@@ -3,10 +3,181 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
+ 	<select id="selectAll" resultType="mybatis.vo.Movie">
+ 		SELECT tlm.*, tv.cidx, tv.schedule, tv.comments FROM TBL_MOVIE tlm, (
+			SELECT tm.MCODE, ts.CIDX, ts.SCHEDULE, count(tm2.CONTENT) as comments
+			FROM TBL_MOVIE tm
+			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
+			on tm.MCODE = tm2.MCODE 
+			LEFT OUTER JOIN TBL_SCHEDULE ts 
+			ON tm.MCODE = ts.MCODE
+			GROUP BY tm.MCODE, ts.CIDX, ts.SCHEDULE 
+		) tv WHERE tlm.MCODE = tv.mcode ORDER BY tlm.MCODE 
+ 	</select>
+ 	<select id="search" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
+		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
+			SELECT tm.MCODE, count(tm2.CONTENT) as comments
+			FROM TBL_MOVIE tm
+			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
+			on tm.MCODE = tm2.MCODE
+			GROUP BY tm.MCODE
+		) tv
+		<where>
+			tlm.MCODE = tv.mcode
+			<if test="mname!=null">
+				<trim prefix="and">
+					mname like '%' || #{mname} || '%'
+				</trim>
+			</if>
+			<if test="genre!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					genre like '%' || #{genre} || '%'
+				</trim>
+			</if>
+			<if test="director!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					director like '%' || #{director} || '%'
+				</trim>
+			</if>
+			<if test="release_date!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					release_date like '%' || #{release_date} || '%'
+					ORDER BY release_date ASC
+				</trim>
+			</if>
+			<if test="producer!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					producer like '%' || #{producer} || '%'
+				</trim>
+			</if>
+			<if test="rating != null">
+				<choose>
+					<when test="rating == '성인' || '청불'">
+						AND rating = 18
+					</when>
+					<otherwise>
+						<trim prefix="AND" prefixOverrides="AND">
+							rating = #{rating}
+						</trim>
+					</otherwise>
+				</choose>
+			</if>
+			<if test="running_time!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					running_time BETWEEN #{running_time} AND #{running_time} + 9
+					ORDER BY running_time ASC
+				</trim>
+			</if>
+			<if test="mgrade!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					mgrade BETWEEN #{mgrade} AND #{mgrade} + 0.9
+					ORDER BY mgrade ASC
+				</trim>
+			</if>
+			<if test="country!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					country like '%' || #{country} || '%'
+				</trim>
+			</if>
+			<if test="mcast!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					mcast like '%' || #{mcast} || '%'
+				</trim>
+			</if>
+			<if test="comments!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					tv.comments >= #{comments}
+				</trim>
+			</if>
+		</where>
+	</select>
+ 	<select id="getOne" parameterType="int" resultType="mybatis.vo.Movie">
+ 		SELECT * 
+		FROM tbl_movie
+		WHERE mcode = #{mcode}
+ 	</select>
+ 	<select id="selectByIdx" parameterType="long" resultType="mybatis.vo.Movie">
+ 		SELECT * 
+ 		FROM tbl_movie
+ 		WHERE mcode = #{mcode}   <!-- PK로 조회 -->
+ 	</select>
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM tbl_movie WHERE mcode=#{mcode}
+ 	</delete>
+ 	<select id="count" resultType="int">
+ 		SELECT count(*) FROM tbl_movie
+ 	</select>
+ 	<select id="pagelist" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
+ 		SELECT * FROM 
+			(SELECT rownum r ,f.* FROM
+								(SELECT * FROM tbl_movie ORDER BY mcode DESC) f)
+		WHERE r BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<insert id="insert" parameterType="mybatis.vo.Movie">
+ 		INSERT INTO TBL_MOVIE
+		VALUES (
+			movie_idx_seq.nextval, #{mname}, #{genre}, #{director},
+			#{release_date}, #{producer}, #{running_time}, #{rating},
+			#{synopsys}, #{mgrade}, #{country}, #{mcast}, #{poster}
+		)
+ 	</insert>
+ 	<!-- 상영 중 조회  -->
+ 	<select id="selectCurrentMovies" resultType="mybatis.vo.Movie">
+	    SELECT m.*, s.schedule
+	    FROM TBL_MOVIE m
+	    INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode
+	    WHERE s.schedule BETWEEN SYSDATE AND ADD_MONTHS(SYSDATE, 1)
+	</select>
+	<!-- 상영 종료  -->
+	<select id="selectEndMovies" resultType="mybatis.vo.Movie">
+	  <![CDATA[
+		SELECT m.*, s.schedule 
+		FROM TBL_MOVIE m 
+		INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode 
+		WHERE s.schedule < ADD_MONTHS(SYSDATE, -1)
+		]]>
+	</select>
+	<!-- 상영 예정 -->
+	<select id="selectUpcomingMovies" resultType="mybatis.vo.Movie">
+	 	SELECT m.*, s.schedule 
+		FROM TBL_MOVIE m 
+		INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode 
+		WHERE s.schedule > ADD_MONTHS(SYSDATE, 1)
+	</select>
+	<select id="todayLater" resultType="mybatis.vo.Schedule">
+		SELECT ADD_MONTHS(schedule, 1), 'YYYY-MM-DD' FROM TBL_SCHEDULE
+	</select>
+	<update id="modify" parameterType="java.util.Map">
+		UPDATE TBL_MOVIE
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="mname!=null">
+				mname = #{mname},
+			</if>
+			<if test="genre!=null">
+				GENRE = #{genre},
+			</if>
+			<if test="director!=null">
+				director = #{director},
+			</if>
+			<if test="producer!=null">
+				producer = #{producer},
+			</if>
+			<if test="running_time!=null">
+				running_time = #{running_time},
+			</if>
+			<if test="synopsys!=null">
+				synopsys = #{synopsys},
+			</if>
+			<if test="mgrade!=null">
+				mgrade = #{mgrade},
+			</if>
+			<if test="country!=null">
+				country = #{country},
+			</if>
+			<if test="mcast!=null">
+				mcast = #{mcast}
+			</if>
+		</trim>
+		WHERE mcode = #{mcode}
+	</update>
  </mapper>
- 
- 
- 
- 
- 
- 

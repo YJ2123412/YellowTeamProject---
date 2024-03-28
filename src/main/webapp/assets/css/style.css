@@ -1,4 +1,4 @@
-@charset "UTF-8";
+  @charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -40,12 +40,14 @@ ol, ul {
   list-style: none; }
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 table {
   border-collapse: collapse;
@@ -2182,13 +2184,13 @@ input[type='radio']:checked + label {
 
 /* Header S */
 header {
-  position: fixed;
+  /* position: absolute; */
   left: 0;
   top: 0;
   width: 100%;
-  color: #fff;
+  color: rgb(0, 0, 0);
   z-index: 100;
-  box-shadow: 0px 0.7142857143rem 1.4285714286rem 0 rgba(15, 16, 16, 0.3); }
+ /*  box-shadow: 0px 0.7142857143rem 1.4285714286rem 0 rgba(15, 16, 16, 0.3); */ }
   header .top-nav {
     background: #04152b; }
     header .top-nav > ul {

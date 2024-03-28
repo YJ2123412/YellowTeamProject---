@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
+
+.wrap {
+	padding-top: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+.screen {
+  width:100%;
+  height:20px;
+  background:#4388cc;
+  color:#fff;
+  line-height:20px;
+  font-size:15px;
+}
+
+.smallBox::before {
+  content:".";
+  width:15px;
+  height:15px;
+  float:left;
+  margin-right:10px;
+}
+.greenBox::before {
+  content:"";
+  background:Green;
+}
+.redBox::before {
+  content:"";
+  background:Red;
+}
+.emptyBox::before {
+  content:"";
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    background-color:#ccc;
+}
+
+.seats {
+  border:1px solid red;background:yellow;
+} 
+
+.seatGap {
+  width:40px;
+}
+
+.seatVGap {
+  height:40px;
+}
+
+table {
+  text-align:center;
+}
+
+.Displaytable {
+  text-align:center;
+}
+.Displaytable td, .Displaytable th {
+    border: 1px solid;
+    text-align: left;
+}
+textarea {
+  border:none;
+  background:transparent;
+}
+
+input[type=checkbox] {
+    width:0px;
+    margin-right:18px;
+}
+
+input[type=checkbox]:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align:middle;
+    text-align: center;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    background-color:#ccc;
+}
+
+input[type=checkbox]:checked:before {
+    background-color:Green;
+    font-size: 15px;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+table#seatsBlock {
+    display: flex;
+    justify-content: center;
+}
+
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+button {
+	border:0; 
+	background:transparent;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #4388cc;
+    height: 30px;
+    border: 1.5px solid #4388cc;
+    color: #FFFFFf;
+}
+
+button#complete {
+    margin-top: 10px;
+}
+    
+form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cinema {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+	width: 300px;
+    height: 430px;
+}
+
+select {
+    height: 30px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.in {
+    height: 30px;
+    width: 200px;
+}
+
+.wrap2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.poster {
+	padding-left: 110px;
+	padding-top: 20px;
+}
+
+.smallBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.seatStructure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+   
+  

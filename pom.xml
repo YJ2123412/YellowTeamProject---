@@ -20,63 +20,86 @@
     </plugins>
   </build>
    <dependencies>
-  		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc11</artifactId>
-			<version>21.5.0.0</version>  <!--  11.2.0.4 -->  <!-- 21.5.0.0 -->
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.22</version>
-			<scope>provided</scope>
-		</dependency>
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+	<dependency>
+		<groupId>com.oracle.database.jdbc</groupId>
+		<artifactId>ojdbc11</artifactId>
+		<version>21.5.0.0</version>  <!--  11.2.0.4 -->  <!-- 21.5.0.0 -->
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.22</version>
+		<scope>provided</scope>
+	</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.5.10</version>
-		</dependency>
+	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.5.10</version>
+	</dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api : 로그 라이브러리 -->
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-api</artifactId>
-		    <version>2.0.7</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple : 로그 라이브러리 -->
-		<dependency>
-		   <groupId>org.slf4j</groupId>
-		   <artifactId>slf4j-simple</artifactId>
-		   <version>2.0.7</version>
-		</dependency>		
-		<!-- https://mvnrepository.com/artifact/com.google.guava/guava : 패스워드 해시 sha256-->
-		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>30.0-jre</version>
-		</dependency>
-		<!-- 파일 업로드 -->    
-		<dependency>
-			<groupId>servlets.com</groupId>
-			<artifactId>cos</artifactId>
-			<version>05Nov2002</version>
-		</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api : 로그 라이브러리 -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>2.0.7</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple : 로그 라이브러리 -->
+	<dependency>
+	   <groupId>org.slf4j</groupId>
+	   <artifactId>slf4j-simple</artifactId>
+	   <version>2.0.7</version>
+	</dependency>		
+	<!-- https://mvnrepository.com/artifact/com.google.guava/guava : 패스워드 해시 sha256-->
+	<dependency>
+	    <groupId>com.google.guava</groupId>
+	    <artifactId>guava</artifactId>
+	    <version>30.0-jre</version>
+	</dependency>
+	<!-- 파일 업로드 -->    
+	<dependency>
+		<groupId>servlets.com</groupId>
+		<artifactId>cos</artifactId>
+		<version>05Nov2002</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/s3-transfer-manager -->
+	<dependency>
+	    <groupId>software.amazon.awssdk</groupId>
+	    <artifactId>s3-transfer-manager</artifactId>
+	    <version>2.25.11</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/sdk-core -->
+	<dependency>
+	    <groupId>software.amazon.awssdk</groupId>
+	    <artifactId>sdk-core</artifactId>
+	    <version>2.25.13</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/software.amazon.awssdk.crt/aws-crt -->
+	<dependency>
+	    <groupId>software.amazon.awssdk.crt</groupId>
+	    <artifactId>aws-crt</artifactId>
+	    <version>0.29.12</version>
+	</dependency>
 	<!-- json -->
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.14.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.json</groupId>
+	    <artifactId>json</artifactId>
+	    <version>20210307</version>
 	</dependency>
   </dependencies>
 </project>

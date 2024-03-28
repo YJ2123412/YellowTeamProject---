@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.label {
+	font-size: 13px;
+	padding: 1.2px;
+	color: black;
+	border: 1px solid lightgray;
+	border-radius: 6px;
+	background-color: lightgray;
+}
+
+.label.closed {
+	color: white;
+	border-color: gray;
+	background-color: gray;
+}
+
+.label.playing {
+	color: white;
+	border-color: blue;
+	background-color: blue;
+}
+
+.label.reserved {
+	color: white;
+	border-color: green;
+	background-color: green;
+}

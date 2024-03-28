@@ -12,6 +12,6 @@ public class MybatisTest {
 		MemberDao dao = MemberDao.getInstance();
 		List<Member> list = dao.selectAll();
 
-		log.info("list 0 name : {}", list.get(0).getName());
+		log.info("list 0 name : {}", list.get(1).getName());
 	}
 }

@@ -36,7 +36,7 @@ public class SqlSessionBean {
 		//읽어온 파일로 factory 생성
 	}
 	
-	public static SqlSession getSession() {    
+	public static SqlSession getSession() {
 		//**생성된 sqlSessionFactory 리턴하는 메소드 -> sql 실행하는 객체
 		return sqlSessionFactory.openSession();
 	}

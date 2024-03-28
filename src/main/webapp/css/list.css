@@ -1,0 +1,173 @@
+@charset "UTF-8";
+@font-face {
+		    font-family: 'SUIT-Regular';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+section {
+	    padding: 3em 0 3em 0;
+	    overflow: hidden;
+}
+		
+h1 a , div.container,h3 ,th {
+			font-family: 'SUIT-Regular';
+}
+#list h3{
+	margin-bottom: 0;
+	text-align: center;
+}
+
+#list p {
+	text-align: center;
+}
+#list ul {
+	list-style: none;
+}
+#list ul#main{
+		display:flex;
+		flex-direction:column;
+}
+#list ul.row {
+		display: flex;
+		flex-direction: row;     /* 기본값 */
+}
+#list ul.row > li{
+	padding: 7px 0px;
+}
+#list ul.row > li:nth-child(1){  /* .row 의 자식태그 중 li 그리고 그 li의 n번째 위치(자식요소)로 select  */
+	flex-basis:10%;
+}	
+#list ul.row > li:nth-child(2){
+	flex-basis:40%;
+}
+#list ul.row > li:nth-child(3){
+	flex-basis:25%;
+}
+#list ul.row > li:nth-child(4){
+	flex-basis:10%;
+}
+#list ul.row > li:nth-child(5){
+	flex-basis:15%;
+}
+
+ div.list a.pagenum {
+    /* border: 1px solid#37966f; */
+   /*  color: #37966f; */
+    background-color: #51a2a2;
+    color:white !important;
+    margin : 3px 6px;
+    text-decoration: none;   
+    cursor: pointer;
+    display: inline-block;
+    box-sizing:border-box;
+    width : 30px;
+    height : 30px;
+    padding: 2px;
+	text-align:center;
+    border-radius:50%;
+    font-size: 0.8em;
+
+}
+/* #list .pagenum:hover{
+	  background-color:#37966f;
+	  color:white;
+	  font-weight: bold;
+}  */
+
+ #list .current {
+	font-weight:bold;
+	color:gray;
+} 
+/*  #list a.button {
+    background-color: #37966f;
+    color:white;
+    padding: 7px 25px;
+    text-decoration: none;   
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	border-radius: 4px;
+	border:none;
+	margin : 3px;
+}  */
+#list button {
+	font-size:0.9em;
+	padding: 2px 15px;
+}
+
+#list .table {
+	padding-left : 10rem;
+}
+
+/* 공지사항 */
+.guide {
+	padding : 10rem 0 0;
+}
+.guide > h3, .guide > p {
+	text-align: center;
+}
+section#notice {
+	padding: 0 1rem;
+	width: 60rem;
+	margin:auto;
+ 	background-color: rgba(0, 0, 0, 0); /* 검은색 (0, 0, 0)이지만 알파 채널은 0으로 투명하게 설정됨 */
+}
+
+#notice input[type="text"], select {
+	    background: #fff;
+    border: solid 1px #e0e0e0;
+    border-radius: 5px;
+    color: inherit;
+    display: inline-block;
+    outline: 0;
+    padding: 0.5em;
+    font-size:0.8em;
+    text-decoration: none;
+}
+#search {
+	text-align: center;
+}
+#notice input[type="text"] {
+	width: 20em;
+}
+
+#search button {
+	padding : 2px;
+}
+
+#notice ul#main {
+	padding-top: 2em;
+	list-style: none;
+}
+select {
+	  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  text-indent: 0;
+  text-overflow: '';
+}
+
+#notice ul.row > li{
+	padding: 3px 0px;
+	list-style: none;
+	text-align: center;
+}
+#notice ul.row > li:nth-child(1){  /* .row 의 자식태그 중 li 그리고 그 li의 n번째 위치(자식요소)로 select  */
+	flex-basis:10%;
+}	
+#notice ul.row > li:nth-child(2){
+	flex-basis:40%;
+}
+#notice ul.row > li:nth-child(3){
+	flex-basis:25%;
+}
+#notice ul.row > li:nth-child(4){
+	flex-basis:25%;
+}
+
+a.write-btn {
+	font-weight: 300;
+	padding : 3px;
+	border: 1px solid black;
+}

@@ -3,10 +3,58 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="reserves">
- </mapper>
- 
- 
- 
- 
- 
+  	<select id="insert" resultType="int" parameterType="mybatis.vo.Reserve">
+ 		INSERT INTO TBL_RESERVE
+  		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat},10000)
+ 	</select>
+ 	<insert id="insertArr"  parameterType="java.util.List">
+ 		<selectKey keyProperty = "maxseq" resultType="int" order="BEFORE">
+ 			SELECT NVL(MAX(rcode),0)+1 from TBL_RESERVE	
+ 		</selectKey>
+ 		INSERT INTO TBL_RESERVE (RCODE, MEMBER_CODE, THEATER, MOVIE_CODE, RESERVE_DATE, SCHEDULE, SEAT, PRICE) 
+ 		<foreach collection = "list" item="reserve" separator="UNION ALL " index="idx" >
+ 			SELECT 
+  			#{maxseq}+#{idx},
+  			#{reserve.member_code}, 
+  			#{reserve.theater}, 
+  			#{reserve.movie_code}, 
+  			sysdate ,#{reserve.scheduleDate}, #{reserve.seat},#{reserve.price} FROM DUAL
+  		</foreach>
+ 	</insert>
+ 	<select id="delete" resultType="int" parameterType="java.util.Map">
+ 		DELETE FROM TBL_RESERVE
+		WHERE RCODE=#{rcode} AND MEMBER_CODE= #{member_code} 
+ 	</select>
+ 	<select id="reserveAll" parameterType="String" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE,  POSTER, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
+		WHERE TM.MCODE = TR.MOVIE_CODE
+		AND TR.THEATER = TC.IDX 
+		AND TR.MEMBER_CODE = #{member_code}
+		ORDER BY TR.RESERVE_DATE DESC 
+ 	</select>
+ 	<select id="reserve" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE, POSTER ,TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT, TM.MNAME
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
+		WHERE TM.MCODE = TR.MOVIE_CODE
+		AND TR.THEATER = TC.IDX 
+		AND TR.MEMBER_CODE = #{member_code}
+		AND tr.MOVIE_CODE =#{movie_code}
+		AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
+ 	</select>
+ 	<insert id="saleOne" parameterType="mybatis.vo.Payment">
+ 		INSERT INTO TBL_PAYMENT
+ 		VALUES (#{orderid},#{id},sysdate,#{paytype},#{paymentkey},#{amount})
+ 	</insert>
+ 	<select id="paymentId" parameterType="String" resultType="mybatis.vo.ReserveList">
+ 	SELECT *
+	FROM TBL_PAYMENT , TBL_RESERVE 
+	where TBL_PAYMENT.PAYDATE =TBL_RESERVE.RESERVE_DATE AND TBL_PAYMENT.ID =#{member_code}
+ 	</select>
+ 	<select id="payment" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
+ 	SELECT *
+	FROM TBL_PAYMENT , TBL_RESERVE 
+	WHERE TBL_PAYMENT.orderid =#{orderid} AND TBL_PAYMENT.PAYDATE =sysdate AND TBL_PAYMENT.ID =#{member_code}
+ 	</select>
+</mapper>
  

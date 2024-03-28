@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+#movie-register-main {
+	form {
+		width: 920px;
+		margin: 200px auto 280px;
+	}
+	form > .file-wrapper > label {
+		height: 920px;
+	}
+	form > h3 {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
+	
+	@media screen and (max-width: 480px) {
+		form {
+			width: 90%;
+		}
+		
+		form > .file-wrapper > label {
+			width: 90%;
+			height: 90vw;
+		}
+	}
+	@media screen and (max-width: 736px) {
+		form {
+			width: 540px;
+		}
+		
+		form > .file-wrapper > label {
+			width: 420px;
+			height: 420px;
+		}
+	}
+	@media screen and (max-width: 840px) {
+		form {
+			width: 600px;
+		}
+		
+		form > .file-wrapper > label {
+			width: 450px;
+			height: 450px;
+		}
+	}
+	@media screen and (max-width: 1020px) {
+		form {
+			width: 680px;
+		}
+		
+		form > .file-wrapper > label {
+			width: 510px;
+			height: 510px;
+		}
+	}
+	@media screen and (max-width: 1280px) {
+		form {
+			width: 720px;
+		}
+		
+		form > .file-wrapper > label {
+			width: 540px;
+			height: 540px;
+		}
+	}
+	@media screen and (max-width: 1680px) {
+		form {
+			width: 840px;
+		}
+		
+		form > .file-wrapper > label {
+			width: 620px;
+			height: 620px;
+		}
+	}
+	
+	form > .input-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+	}
+	
+	form > .input-wrapper, .file-wrapper {
+		margin-bottom: 12px;
+	}
+	
+	form > .input-wrapper > p {
+		font-size: 17px;
+		margin: 0;
+	}
+	
+	form > .file-wrapper > input {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+	}
+	form > .file-wrapper > label {
+		font-size: 17px;
+		margin: 0 auto;
+		cursor: pointer;
+		position: relative;
+		border: 1px solid lightgray;
+		border-radius: 6px;
+	}
+	form > .file-wrapper > label > #upload-button {
+		max-height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	form > .file-wrapper > label > #upload-button > * {
+		border-radius: 6px;
+	}
+	form > .input-wrapper > input, select {
+		font-size: 14px;
+		padding: 4px 9px;
+	}
+
+	form > .button-wrapper {
+		display: flex;
+    	justify-content: center;
+	}
+}

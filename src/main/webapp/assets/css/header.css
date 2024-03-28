@@ -1,9 +1,253 @@
-@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-nav > ul#menu > li > ul.submenu {
-	display: none;
+/* 리셋 CSS */
+html, body, div, span, ul, li, h2, h3, h4, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
 }
 
-nav > ul#menu > li:hover > ul.submenu {
-	display: block;
+* {
+    box-sizing: border-box;
+}
+
+/* 기본 스타일 */
+body {
+    font-family: 'Roboto','Noto Sans KR';
+    letter-spacing: -0.02rem;
+    color: #222;
+    user-select: none;
+    font-size: 1.6rem;
+}
+
+ul {
+    list-style: none;
+    word-break: keep-all;
+}
+
+/* 헤더 스타일 */
+#header {
+    background-color: #0E2759;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+
+ul#user {
+    width: 100%;
+    background-color: #04152b;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: #fff;
+    font: inherit;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #000C4B;
+    padding: 0.5rem 4rem;
+}
+
+
+#user a {
+    color: white;
+    text-decoration: none !important;
+    padding-right: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+#user span {
+    color: white;
+    text-decoration: none;
+    padding-right: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.sub-wrap .sub-con .site-tab {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    align-items: center;
+}
+
+.sub-wrap .sub-con .user-tab {
+    display: flex;
+    margin: 0;
+}
+
+.sub-wrap .sub-con .site-tab > li {
+    height: 100%;
+    display:inline-block;
+    align-items: center;
+    line-height: 3.6rem;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    vertical-align: baseline;
+    margin: 0;
+    border: 0;
+    text-decoration-line: none;
+}
+
+.sub-wrap .sub-con .user-tab > ul {
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.sub-wrap .sub-con .user-tab > li {
+    position: relative;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    border-left: 40rem;
+}
+
+.sub-wrap .sub-con .user-tab > li + li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0.1rem;
+    height: 1rem;
+    background-color: rgba(255,255,255,0.5);
+    transform: translateY(-50%);
+}
+
+/* 메뉴 스타일 */
+.menu img {
+    height: 50px;
+    max-width: initial;
+    vertical-align: baseline;
+}
+
+#header img:hover{
+	cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: visible; /* overflow 속성을 visible로 변경 */
+    margin: 0px 20px;
+    height: 100px;
+}
+
+.menu > li {
+    width: 200px; /*20*5=100%*/
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    position: relative; /* 하위 .submenu에 절대 위치를 사용하기 위해 필요 */
+}
+
+.menu a {
+    color: #fff;
+    color:white;
+    text-decoration-line: none;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height ease-in-out; /* 높이 전환에 애니메이션 적용 */
+}
+.menu > li .submenu{
+	padding-top: 20px;
+}
+
+.menu > li:hover .submenu {
+    height: 150px; /* 서브메뉴 높이 설정 */
+    background-color: #0E2759;
+}
+.menu a {
+  position: relative;
+}
+
+.menu a span {
+  position: relative;
+}
+
+.menu a span:after {
+  content: attr(data-hover);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.2s cubic-bezier(0.33, 0.91, 0.42, 1) 0s;
+}
+
+.menu a:hover:before {
+  transform: scale(1);
+  transform-origin: 0 50%;
+  transition: transform 0.3s cubic-bezier(0.33, 0.91, 0.42, 1) 0.2s;
+}
+
+.menu a:hover:after {
+  transform: scale(0, 1);
+  transform-origin: 100% 50%;
+  transition: transform 0.3s cubic-bezier(0.33, 0.91, 0.42, 1) 0s;
+}
+
+.menu a:hover span:after {
+  color: #444;
+  transition: color 0.3s cubic-bezier(0.33, 0.91, 0.42, 1) 0.2s;
+}
+
+
+/* 5 */
+.btn-5 {
+  background: #000;
+  color: #fff;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-5:hover {
+  background: transparent;
+  color: #000;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #000;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }
