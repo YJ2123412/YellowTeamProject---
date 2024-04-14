@@ -17,6 +17,9 @@
     line-height: 23px;
     background-color: #0E2759;
 }
+ul#footer {
+    text-align-last: left;
+}
 </style>
 <title>footer</title>
 

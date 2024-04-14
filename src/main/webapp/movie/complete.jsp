@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>스타 라이트 영화관</title>
 <link rel="stylesheet" href="../assets/css/myPage.css" />
+<link rel="stylesheet" href="../assets/css/header.css" />
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
@@ -34,5 +35,6 @@
     <hr>
 </c:forEach>
 </div>
+<%@ include file="../layout/footer.jsp" %>
 </body>
 </html>

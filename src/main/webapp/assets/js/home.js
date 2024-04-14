@@ -40,7 +40,7 @@ const createMovieList = (arr) => {
 
 		const poster = document.createElement('img');
 		poster.className = 'imgsize'
-		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
+		poster.src = `assets/img/poster/${el.poster}.jpg`
 		poster.alt = el.mcode;
 		link.appendChild(poster);
 		card.appendChild(div);
@@ -93,7 +93,7 @@ const createMovieCommentsList = (arr) => {
 		anchor.href = `movie/read?mcode=${item.mcode}&page=1`;
 
 		const img = document.createElement('img');
-		img.src= `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${item.poster}.jpg`;
+		poster.src = `assets/img/poster/${el.poster}.jpg`
 		img.alt = item.poster;
 
 		const inner = document.createElement('div');

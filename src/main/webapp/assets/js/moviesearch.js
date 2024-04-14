@@ -11,7 +11,7 @@ const createMovieList = (arr) => {
 		anchor.href=`read?mcode=${el.mcode}&page=1`;
 		
 		const poster = document.createElement('img');
-		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
+		poster.src = `../assets/img/poster/${el.poster}.jpg`;
 		poster.alt = el.mcode;
 		anchor.appendChild(poster);
 		card.appendChild(anchor);

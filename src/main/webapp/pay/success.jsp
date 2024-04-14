@@ -15,47 +15,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../css/layout.css" />
 		<link rel="stylesheet" href="../assets/css/myPage.css" />
 	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
-
-
-			<!-- Main -->
-				<section class="wrapper style1">
-					<div class="container">
-						<div class="row gtr-200">
-							<div class="col-3 col-12-narrower">
-								<div id="sidebar1">
-								</div>
-							</div>
-							<div class="col-6 col-12-narrower imp-narrower">
-								<div id="content">
-
-									<!-- Content -->
-
-										<article>
-											<header>
-												<h3 id="result">결제가 완료되었습니다</h3>
-											</header>
-										</article>
-
-								</div>
-							</div>
-							<div class="col-3 col-12-narrower">
-								<div id="sidebar2">
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<%@ include file="../layout/footer.jsp" %>
-				<div data-num="3" id="datanum"></div>
-		</div>
-
+	<div>
+		<img alt="logo" src="../assets/img/logo2.png">	
+	</div>
+	
+	<h2 style="text-align: center; margin-top: 30px;">결제가 완료되었습니다. 예매 내역으로 이동합니다.</h2>
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.dropotron.min.js"></script>
@@ -91,7 +57,7 @@
 	      })
 		.catch(e=> {
 			console.error(e.response);
-			/* location.href='../invalid.html' */
+			location.href='../invalid.html' 
 		}) 
 	</script>
 	</body>

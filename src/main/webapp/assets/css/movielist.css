@@ -1,7 +1,10 @@
 @charset "UTF-8";
-@import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
 #movieList {
     padding-top: 150px;
 }
@@ -31,7 +34,6 @@ h3{
     font-size: 0.9em;
     text-decoration: none;
     padding:8px;
-    box-shadow: 0px 2px 10px 1px #6d6d6d;
     
     }
  #listnow>a:active{
@@ -61,14 +63,6 @@ img {
     align-items: center; 
 }
 
-/* .img-style {
-    width: 184px; 고정된 가로 너비
-    height: 262.85px; 고정된 세로 높이
-    margin-bottom: 10px; 아래 여백 추가
-    border-radius: 5px; 둥근 테두리 적용
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); 그림자 효과 추가
-    object-fit: cover; 이미지를 가득 채우면서 비율 유지
-} */
 
 .movie-list {
     display: grid;
@@ -83,31 +77,14 @@ img {
 .movie-item {
   	text-align: center;
    	margin: 0 0.6em;
-    text-shadow: 0px 5px 12px #6d6d6d;
     font-size: 16px;
 }
 
 .movie-item img {
    width: 300px;
 	height: 380px;
-	box-shadow: 0px 12px 16px 2px #6d6d6d;
 }
 
  .movie-container img:hover {
     cursor: pointer;
 }
-
-/* .mname {
-	 text-align: center;
-   	color: black;
-   	margin: auto;
-    text-shadow: 1px 5px 12px #6d6d6d;
-    font-size: 16px;
-} */
-
-/* .runt {
-	font-size: 10pt;
-	margin: 8px 0px 8px 0px; line-height: 120%;
-}
- */
- 
